@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile – Bright Aerospace</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Sedan:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="profile.css"/>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-logo"><img src="logo.png" width="42" height="42"/></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Community</a></li>
+    <li><a href="#">About</a></li>
+    <li class="dropdown">
+      <a href="#" onclick="toggleDropdown(event)">More</a>
+      <ul class="dropdown-menu" id="dropdownMenu">
+        <li><a href="career.html">Career</a></li>
+        <li><a href="project.html">Project</a></li>
+      </ul>
+    </li>
+    <li><a href="#" onclick="scrollToFooter();return false;">Contact Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-notif" title="Notifications">
+      <i class="fa-regular fa-bell"></i>
+      <div class="notif-dot"></div>
+    </div>
+    <div class="nav-user" id="navUser">
+      <div class="nav-user-btn" onclick="toggleUserMenu()">
+        <div class="nav-user-avatar">A</div>
+        <span class="nav-user-name">Arjun</span>
+        <i class="fa-solid fa-chevron-down chev"></i>
+      </div>
+      <div class="user-dropdown">
+        <div class="dd-user-info">
+          <strong>Arjun Mehta</strong>
+          <span>arjun.mehta@iitb.ac.in</span>
+        </div>
+        <a href="profile.html"><i class="fa-solid fa-user"></i> My Profile</a>
+        <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="#"><i class="fa-solid fa-certificate"></i> My Certificates</a>
+        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MAIN CONTENT ── -->
+<div class="main-content">
+
+  <!-- Profile Header -->
+  <div class="profile-header-card">
+    <div class="ph-avatar">A<div class="ph-online"></div></div>
+    <div class="ph-info">
+      <div class="ph-name">Arjun Mehta</div>
+      <div class="ph-badges">
+        <span class="ph-badge intern"><i class="fa-solid fa-id-badge"></i> Active Intern</span>
+        <span class="ph-badge dept"><i class="fa-solid fa-rocket"></i> Propulsion</span>
+        <span class="ph-badge college"><i class="fa-solid fa-graduation-cap"></i> IIT Bombay</span>
+      </div>
+      <div class="ph-meta">
+        <span><i class="fa-solid fa-envelope"></i> arjun.mehta@iitb.ac.in</span>
+        <span><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+        <span><i class="fa-solid fa-calendar-plus"></i> Joined Jan 2024</span>
+        <span><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
+      </div>
+    </div>
+    <div class="ph-stats">
+      <div class="ph-stat"><span class="ph-stat-val">3</span><span class="ph-stat-label">Courses Done</span></div>
+      <div class="ph-stat"><span class="ph-stat-val">2</span><span class="ph-stat-label">Projects</span></div>
+      <div class="ph-stat"><span class="ph-stat-val">84%</span><span class="ph-stat-label">Avg Score</span></div>
+      <div class="ph-stat"><span class="ph-stat-val">6</span><span class="ph-stat-label">Weeks Active</span></div>
+    </div>
+  </div>
+
+  <!-- Current Course -->
+  <div class="profile-section" id="section-course">
+    <div class="section-title"><i class="fa-solid fa-book-open"></i> Current Course</div>
+    <div class="row">
+      <div class="col-2">
+        <div class="course-card">
+          <div>
+            <div class="course-tag"><i class="fa-solid fa-rocket"></i> Propulsion Engineering</div>
+            <div class="course-title">Liquid Propellant Rocket Engines — Advanced</div>
+            <div class="course-meta">
+              <span><i class="fa-solid fa-user"></i> Dr. K. Rajesh (ISRO)</span>
+              <span><i class="fa-solid fa-clock"></i> 12 Weeks Total</span>
+              <span><i class="fa-solid fa-calendar"></i> Started Mar 1, 2025</span>
+              <span><i class="fa-solid fa-signal"></i> Advanced Level</span>
+            </div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Overall Progress</span><span>Week 8 of 12 — 67%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:67%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div class="mini-stat"><div class="mini-stat-icon yellow"><i class="fa-solid fa-star"></i></div><div><div class="mini-stat-val">87 / 100</div><div class="mini-stat-label">This Week's Score</div></div></div>
+          <div class="mini-stat"><div class="mini-stat-icon green"><i class="fa-solid fa-trophy"></i></div><div><div class="mini-stat-val">84.6 / 100</div><div class="mini-stat-label">8-Week Average</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance & Statistics -->
+  <div class="profile-section" id="section-performance">
+    <div class="section-title"><i class="fa-solid fa-chart-line"></i> Performance &amp; Statistics</div>
+    <div class="perf-grid" style="margin-bottom:16px;">
+      <div class="perf-card"><div class="perf-card-icon yellow"><i class="fa-solid fa-percent"></i></div><div class="perf-val">84.6%</div><div class="perf-label">Overall Average</div><div class="perf-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +3.2% this month</div></div>
+      <div class="perf-card"><div class="perf-card-icon green"><i class="fa-solid fa-fire"></i></div><div class="perf-val">6 Wks</div><div class="perf-label">Current Streak</div><div class="perf-trend up"><i class="fa-solid fa-arrow-trend-up"></i> Best so far</div></div>
+      <div class="perf-card"><div class="perf-card-icon blue"><i class="fa-solid fa-arrow-up-right-dots"></i></div><div class="perf-val">93</div><div class="perf-label">Highest Week Score</div><div class="perf-trend neutral"><i class="fa-solid fa-minus"></i> Week 5</div></div>
+      <div class="perf-card"><div class="perf-card-icon purple"><i class="fa-solid fa-chart-pie"></i></div><div class="perf-val">Top 15%</div><div class="perf-label">Batch Percentile</div><div class="perf-trend up"><i class="fa-solid fa-arrow-trend-up"></i> Up from Top 25%</div></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-header">
+        <div class="chart-title">Weekly Marks — Current Course</div>
+        <div class="chart-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#c9ae00"></div> Score</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#cacdd5"></div> Avg</div>
+        </div>
+      </div>
+      <div style="position:relative; height:clamp(180px, 18vw, 320px); width:100%;">
+        <canvas id="marksChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completed Courses -->
+  <div class="profile-section" id="section-completed">
+    <div class="section-title"><i class="fa-solid fa-circle-check"></i> Completed Courses</div>
+    <div class="completed-grid">
+      <div class="completed-card prop">
+        <div class="cc-header"><div class="cc-dept-tag propulsion">Propulsion</div><div class="cc-score">91 / 100</div></div>
+        <div class="cc-title">Introduction to Rocket Propulsion</div>
+        <div class="cc-meta"><span><i class="fa-solid fa-user"></i> Dr. K. Rajesh</span><span><i class="fa-solid fa-clock"></i> 8 Weeks</span><span><i class="fa-solid fa-calendar"></i> Oct – Dec 2024</span></div>
+        <div class="cc-footer"><div class="cert-badge"><i class="fa-solid fa-certificate"></i> Certificate Issued</div><div class="grade-badge a">A+</div></div>
+      </div>
+      <div class="completed-card avio">
+        <div class="cc-header"><div class="cc-dept-tag avionics">Avionics</div><div class="cc-score">78 / 100</div></div>
+        <div class="cc-title">Avionics &amp; Onboard Systems Fundamentals</div>
+        <div class="cc-meta"><span><i class="fa-solid fa-user"></i> Prof. S. Nair</span><span><i class="fa-solid fa-clock"></i> 10 Weeks</span><span><i class="fa-solid fa-calendar"></i> Jul – Sep 2024</span></div>
+        <div class="cc-footer"><div class="cert-badge"><i class="fa-solid fa-certificate"></i> Certificate Issued</div><div class="grade-badge b">B+</div></div>
+      </div>
+      <div class="completed-card soft">
+        <div class="cc-header"><div class="cc-dept-tag software">Software</div><div class="cc-score">85 / 100</div></div>
+        <div class="cc-title">Flight Dynamics &amp; MATLAB Simulation</div>
+        <div class="cc-meta"><span><i class="fa-solid fa-user"></i> Dr. A. Verma</span><span><i class="fa-solid fa-clock"></i> 6 Weeks</span><span><i class="fa-solid fa-calendar"></i> Apr – Jun 2024</span></div>
+        <div class="cc-footer"><div class="cert-badge"><i class="fa-solid fa-certificate"></i> Certificate Issued</div><div class="grade-badge a">A</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Applications -->
+  <div class="profile-section" id="section-applications">
+    <div class="section-title"><i class="fa-solid fa-briefcase"></i> Job Applications</div>
+    <div class="applications-list">
+      <div class="app-card">
+        <div class="app-card-left">
+          <div class="app-role">Propulsion Engineering Intern</div>
+          <div class="app-meta">
+            <span><i class="fa-solid fa-building"></i> Bright Aerospace</span>
+            <span><i class="fa-solid fa-location-dot"></i> Remote</span>
+            <span><i class="fa-solid fa-calendar"></i> Applied Jul 10, 2025</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i> 5,000/mo</span>
+          </div>
+          <div class="app-pipeline">
+            <div class="pipe-dot done"></div><div class="pipe-line done"></div>
+            <div class="pipe-dot done"></div><div class="pipe-line done"></div>
+            <div class="pipe-dot current"></div><div class="pipe-line"></div>
+            <div class="pipe-dot"></div>
+          </div>
+          <div class="pipe-labels">
+            <span class="pipe-label-item">Applied</span>
+            <span class="pipe-label-item">Shortlisted</span>
+            <span class="pipe-label-item active">Interview</span>
+            <span class="pipe-label-item">Offer</span>
+          </div>
+        </div>
+        <div class="app-status-wrap">
+          <div class="app-status interview">Interview Scheduled</div>
+          <div style="font-size:clamp(11px,0.82vw,14px);color:#777c89;text-align:right;">Jul 20, 2025 · 3:00 PM</div>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-card-left">
+          <div class="app-role">Flight Software Developer</div>
+          <div class="app-meta">
+            <span><i class="fa-solid fa-building"></i> Bright Aerospace</span>
+            <span><i class="fa-solid fa-location-dot"></i> Remote</span>
+            <span><i class="fa-solid fa-calendar"></i> Applied Jul 5, 2025</span>
+            <span><i class="fa-solid fa-indian-rupee-sign"></i> 12–18 LPA</span>
+          </div>
+          <div class="app-pipeline">
+            <div class="pipe-dot done"></div><div class="pipe-line done"></div>
+            <div class="pipe-dot current"></div><div class="pipe-line"></div>
+            <div class="pipe-dot"></div><div class="pipe-line"></div>
+            <div class="pipe-dot"></div>
+          </div>
+          <div class="pipe-labels">
+            <span class="pipe-label-item">Applied</span>
+            <span class="pipe-label-item active">Shortlisted</span>
+            <span class="pipe-label-item">Interview</span>
+            <span class="pipe-label-item">Offer</span>
+          </div>
+        </div>
+        <div class="app-status-wrap">
+          <div class="app-status shortlisted">Shortlisted</div>
+          <div style="font-size:clamp(11px,0.82vw,14px);color:#777c89;text-align:right;">Awaiting interview invite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Internship Details -->
+  <div class="profile-section" id="section-internship">
+    <div class="section-title"><i class="fa-solid fa-id-badge"></i> Internship Details</div>
+    <div class="intern-card">
+      <div class="intern-top">
+        <div class="intern-info">
+          <h3>Propulsion Engineering Intern</h3>
+          <div class="intern-badges">
+            <span class="intern-badge active"><i class="fa-solid fa-circle" style="font-size:6px"></i> Active</span>
+            <span class="intern-badge dept">Propulsion Dept</span>
+            <span class="intern-badge remote"><i class="fa-solid fa-wifi"></i> Remote</span>
+          </div>
+        </div>
+        <div><div class="intern-duration-val">3 Months</div><div class="intern-duration-label">Total Duration</div></div>
+      </div>
+      <div class="intern-grid">
+        <div class="intern-detail"><div class="intern-detail-label">Start Date</div><div class="intern-detail-val">June 1, 2025</div></div>
+        <div class="intern-detail"><div class="intern-detail-label">End Date</div><div class="intern-detail-val">Aug 31, 2025</div></div>
+        <div class="intern-detail"><div class="intern-detail-label">Stipend</div><div class="intern-detail-val hi">₹5,000 / mo</div></div>
+        <div class="intern-detail"><div class="intern-detail-label">Company</div><div class="intern-detail-val">Bright Aerospace</div></div>
+        <div class="intern-detail"><div class="intern-detail-label">Offer Letter</div><div class="intern-detail-val"><i class="fa-solid fa-file-pdf" style="color:#15803d"></i> <a href="#" style="color:#15803d;text-decoration:none;">View PDF</a></div></div>
+        <div class="intern-detail"><div class="intern-detail-label">Certificate</div><div class="intern-detail-val" style="color:#777c89;">Issued on completion</div></div>
+      </div>
+      <div>
+        <div class="intern-timeline-label"><span>Internship Progress</span><span>6 of 13 weeks · 46%</span></div>
+        <div class="intern-progress-bar"><div class="intern-progress-fill" style="width:46%"></div></div>
+      </div>
+      <div class="tasks-list">
+        <div class="tasks-list-label">Assigned Tasks</div>
+        <div class="task-item"><div class="task-check done"><i class="fa-solid fa-check"></i></div><div class="task-text done">Literature review: liquid bipropellant systems</div><div class="task-due">Week 1</div></div>
+        <div class="task-item"><div class="task-check done"><i class="fa-solid fa-check"></i></div><div class="task-text done">Analyse thrust test bench data from May campaign</div><div class="task-due">Week 3</div></div>
+        <div class="task-item"><div class="task-check done"><i class="fa-solid fa-check"></i></div><div class="task-text done">Build initial MATLAB model for combustion efficiency</div><div class="task-due">Week 5</div></div>
+        <div class="task-item"><div class="task-check pending"></div><div class="task-text">Prepare mid-term progress presentation</div><div class="task-due warn">Due Week 7</div></div>
+        <div class="task-item"><div class="task-check pending"></div><div class="task-text">Final report: performance analysis &amp; recommendations</div><div class="task-due">Week 12</div></div>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar">R</div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dr. Rajesh Kumar</div>
+          <div class="mentor-title">Senior Propulsion Engineer · Bright Aerospace</div>
+        </div>
+        <div class="mentor-contact">
+          <a href="#" title="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" title="Message"><i class="fa-solid fa-comment-dots"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Published Projects -->
+  <div class="profile-section" id="section-projects">
+    <div class="section-title"><i class="fa-solid fa-rocket"></i> Published Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-card-top">
+          <div class="project-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <div class="project-status published">Published</div>
+        </div>
+        <div class="project-title">Combustion Efficiency Analyser for Bipropellant Engines</div>
+        <div class="project-desc">A MATLAB-based tool modelling combustion chamber efficiency for liquid bipropellant rocket engines. Includes Isp prediction, nozzle expansion ratio analysis, and performance curve visualisation.</div>
+        <div class="project-tags">
+          <span class="project-tag">MATLAB</span><span class="project-tag">Propulsion</span><span class="project-tag">Simulation</span><span class="project-tag">Isp Analysis</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-date"><i class="fa-regular fa-calendar"></i> Published Jun 14, 2025</div>
+          <div class="project-links">
+            <a href="#" class="project-link" title="Report"><i class="fa-solid fa-file-lines"></i></a>
+            <a href="#" class="project-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="project-link" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-top">
+          <div class="project-icon"><i class="fa-solid fa-earth-asia"></i></div>
+          <div class="project-status review">Under Review</div>
+        </div>
+        <div class="project-title">Low-Earth Orbit Re-entry Trajectory Simulator</div>
+        <div class="project-desc">Python simulation of a cubesat re-entry from LEO, accounting for atmospheric drag, heat flux, and altitude-dependent density using the NRLMSISE-00 model. Visualised with Matplotlib.</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span><span class="project-tag">GNC</span><span class="project-tag">Re-entry Dynamics</span><span class="project-tag">CubeSat</span>
+        </div>
+        <div class="project-footer">
+          <div class="project-date"><i class="fa-regular fa-calendar"></i> Submitted Jul 2, 2025</div>
+          <div class="project-links">
+            <a href="#" class="project-link" title="Report"><i class="fa-solid fa-file-lines"></i></a>
+            <a href="#" class="project-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="project-link" title="Share"><i class="fa-solid fa-share-nodes"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer id="footer">
+  <div class="footer-content">
+    <div class="footer-logo"><img src="logo.png" width="90" height="90" style="border-radius:50%;object-fit:cover;"/></div>
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <div class="contact-grid">
+        <div class="contact-col"><span>Core Committee</span><span>Sudarsan P</span><span>+91 1234567890</span></div>
+        <div class="contact-col"><br><span>Sudarsan P</span><span>+91 1234567890</span></div>
+        <div class="contact-col"><br><span>Sudarsan P</span><span>+91 1234567890</span></div>
+      </div>
+    </div>
+    <div class="footer-section" style="margin-left:auto;">
+      <h4 style="color:#FFD700;text-transform:none;font-weight:normal;">Tech Support</h4>
+    </div>
+  </div>
+  <div class="social-links">
+    <span>Follow Us On</span>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+  </div>
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fa-solid fa-arrow-up"></i> Back to Top
+  </button>
+</footer>
+
+<!-- ── SCRIPTS ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="profile.js"></script>
+
+</body>
+</html>
