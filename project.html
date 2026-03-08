@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Bright Aerospace</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Sedan&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="projectstyle.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo"><img src="logo.png" width="42" height="42"/></div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">About</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">More</a>
+        <ul class="dropdown-menu">
+          <li><a href="career.html">Career</a></li>
+          <li><a href="project.html" class="active-link">Project</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="scrollToFooter();return false;">Contact Us</a></li>
+    </ul>
+    <button class="btn-yellow">Login In</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="projects-hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">STUDENT SHOWCASE</div>
+        <h1>Projects Built by<br><span>Future Engineers</span></h1>
+        <p>Explore real aerospace projects designed, simulated, and built by students at Bright Aerospace. From CubeSats to rocket propulsion — these are their stories.</p>
+        <div class="hero-stats-row">
+          <div class="hstat-mini">
+            <span class="counter" data-target="42" data-suffix="+">0+</span>
+            <p>Projects</p>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat-mini">
+            <span class="counter" data-target="180" data-suffix="+">0+</span>
+            <p>Students</p>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat-mini">
+            <span class="counter" data-target="7" data-suffix="">0</span>
+            <p>Domains</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="featured-card">
+          <div class="featured-img">
+            <img src="image/card13.png" alt="Featured Project" onerror="this.style.display='none'"/>
+            <div class="featured-img-overlay"></div>
+          </div>
+          <div class="featured-badge">⭐ Featured Project</div>
+          <div class="featured-body">
+            <div class="featured-meta-row">
+              <span class="featured-dept">Avionics &amp; GNC</span>
+              <span class="featured-year">2024</span>
+            </div>
+            <div class="featured-title">AeroSat-1: 1U CubeSat Attitude Control System</div>
+            <div class="featured-desc">Full ADCS design for a 1U CubeSat including magnetorquer coils, sun sensor integration, and PID-based attitude stabilisation.</div>
+            <div class="featured-footer">
+              <div class="team-avatars">
+                <div class="team-avatar">A</div><div class="team-avatar">P</div>
+                <div class="team-avatar">R</div><div class="team-avatar">+2</div>
+              </div>
+              <div class="featured-tag-row">
+                <span class="tech-tag">MATLAB</span>
+                <span class="tech-tag">Simulink</span>
+                <span class="tech-tag">ADCS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters-section">
+    <div class="search-row reveal">
+      <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search projects, tech, keywords…" oninput="applyFilters()"/>
+      </div>
+      <div class="results-count" id="resultsCount"><strong>12</strong> projects</div>
+      <button class="btn-submit-project" onclick="openSubmitModal()">
+        <i class="fa-solid fa-plus"></i> Submit Project
+      </button>
+    </div>
+    <div class="filters reveal reveal-delay-1">
+      <button class="filter-btn active" data-filter-type="cat"  data-value="all"        onclick="setFilter('cat','all',this)">All</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="propulsion"  onclick="setFilter('cat','propulsion',this)">Propulsion</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="avionics"    onclick="setFilter('cat','avionics',this)">Avionics</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="structures"  onclick="setFilter('cat','structures',this)">Structures</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="software"    onclick="setFilter('cat','software',this)">Software</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="cfd"         onclick="setFilter('cat','cfd',this)">CFD</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="gnc"         onclick="setFilter('cat','gnc',this)">GNC</button>
+      <button class="filter-btn"        data-filter-type="cat"  data-value="research"    onclick="setFilter('cat','research',this)">Research</button>
+      <div class="filters-divider"></div>
+      <button class="filter-btn active" data-filter-type="year" data-value="all"  onclick="setFilter('year','all',this)">All Years</button>
+      <button class="filter-btn"        data-filter-type="year" data-value="2024" onclick="setFilter('year','2024',this)">2024</button>
+      <button class="filter-btn"        data-filter-type="year" data-value="2023" onclick="setFilter('year','2023',this)">2023</button>
+      <button class="filter-btn"        data-filter-type="year" data-value="2022" onclick="setFilter('year','2022',this)">2022</button>
+    </div>
+  </section>
+
+  <!-- BENTO GRID -->
+  <section class="projects-section">
+    <div class="bento-grid" id="projectsGrid">
+
+      <!-- ROW 1 — FEATURED -->
+      <div class="bcard bcard-featured bc12" data-cat="avionics" data-year="2024" data-keywords="cubesat adcs attitude control magnetorquer sun sensor matlab simulink pid">
+        <div class="bf-visual-img">
+          <img src="image/card1.png" alt="CubeSat" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#000814,#001440)';this.style.display='none'"/>
+        </div>
+        <div class="bf-body">
+          <div class="bcard-live"><span class="bcard-live-dot"></span>Featured Project</div>
+          <div class="bcard-badge bb-avionics"><span class="bcard-badge-dot"></span>Avionics &amp; GNC</div>
+          <div class="bcard-title">AeroSat-1: CubeSat Attitude Control System</div>
+          <div class="bcard-desc">Full ADCS design for a 1U CubeSat including magnetorquer coils, sun sensor integration, and PID-based attitude stabilisation. Simulated in MATLAB &amp; Simulink. Achieved ±2° pointing accuracy validated against GMAT propagator outputs.</div>
+          <div class="bcard-tags">
+            <span class="bcard-tag">MATLAB</span><span class="bcard-tag">Simulink</span>
+            <span class="bcard-tag">ADCS</span><span class="bcard-tag">PID Control</span>
+            <span class="bcard-tag">CubeSat</span>
+          </div>
+          <div class="bcard-footer" style="padding-left:0;padding-right:0;">
+            <div class="bcard-team">
+              <div class="bcard-avatars"><div class="bcard-avatar">A</div><div class="bcard-avatar">P</div><div class="bcard-avatar">R</div></div>
+              <span class="bcard-team-label">5 members</span>
+            </div>
+            <div class="bcard-actions">
+              <button class="bcard-like" data-count="28" onclick="toggleLike(this)"><span class="like-heart">♡</span><span class="like-count">28</span></button>
+              <button class="bcard-view" onclick="openModal(0)">View <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 — 7+5 -->
+      <div class="bcard bc7" data-cat="propulsion" data-year="2024" data-keywords="solid rocket motor design static fire test nozzle thrust propellant grain">
+        <div class="bcard-vis-img">
+          <img src="image/card2.png" alt="Propulsion" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Propulsion</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-propulsion"><span class="bcard-badge-dot"></span>Propulsion</div>
+          <div class="bcard-title">Solid Rocket Motor Design &amp; Static Fire Test</div>
+          <div class="bcard-desc">End-to-end design of a 250 N solid propellant motor — grain geometry, nozzle sizing, and a successful static fire on a custom-built test stand. Achieved within 6% of predicted thrust curve over 2.8 s burn time.</div>
+          <div class="bcard-tags"><span class="bcard-tag">OpenMotor</span><span class="bcard-tag">Nozzle CFD</span><span class="bcard-tag">KNSB Propellant</span><span class="bcard-tag">Static Fire</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">K</div><div class="bcard-avatar">S</div><div class="bcard-avatar">V</div></div>
+            <span class="bcard-team-label">4 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-like" data-count="19" onclick="toggleLike(this)"><span class="like-heart">♡</span><span class="like-count">19</span></button>
+            <button class="bcard-view" onclick="openModal(1)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc5 bcard-compact bcard-dark" data-cat="cfd" data-year="2023" data-keywords="CFD aerodynamic wing airfoil drag lift OpenFOAM ansys fluent coefficient analysis">
+        <div class="bcard-vis-img">
+          <img src="image/card3.png" alt="CFD" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">CFD</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-cfd"><span class="bcard-badge-dot"></span>CFD &amp; Aerodynamics</div>
+          <div class="bcard-title">NACA 2412 Wing Aerodynamic Analysis</div>
+          <div class="bcard-desc">High-fidelity CFD of NACA 2412 airfoil across AoA 0–20°. CL &amp; CD curves validated against wind tunnel data using OpenFOAM k-ω SST. Results within 4% of experimental data.</div>
+          <div class="bcard-tags"><span class="bcard-tag">OpenFOAM</span><span class="bcard-tag">k-ω SST</span><span class="bcard-tag">Paraview</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">M</div><div class="bcard-avatar">D</div></div>
+            <span class="bcard-team-label">3 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-like" data-count="14" onclick="toggleLike(this)"><span class="like-heart">♡</span><span class="like-count">14</span></button>
+            <button class="bcard-view" onclick="openModal(2)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 3 — 4+4+4 -->
+      <div class="bcard bc4 bcard-compact" data-cat="structures" data-year="2024" data-keywords="finite element analysis FEA composite panel stress strain ANSYS structural launch load">
+        <div class="bcard-vis-img">
+          <img src="image/card4.png" alt="Structures" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Structures</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-structures"><span class="bcard-badge-dot"></span>Structures</div>
+          <div class="bcard-title">Composite Panel FEA Under Launch Loads</div>
+          <div class="bcard-desc">FEA of a carbon fibre composite panel under launch loads in ANSYS. Optimised layup sequence with 21% weight saving over aluminium baseline.</div>
+          <div class="bcard-tags"><span class="bcard-tag">ANSYS</span><span class="bcard-tag">Carbon Fibre</span><span class="bcard-tag">FEA</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">T</div><div class="bcard-avatar">N</div><div class="bcard-avatar">B</div></div>
+            <span class="bcard-team-label">3 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(3)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc4 bcard-compact" data-cat="software" data-year="2023" data-keywords="flight computer embedded avionics python raspberry pi telemetry barometer GPS logging">
+        <div class="bcard-vis-img">
+          <img src="image/card5.png" alt="Software" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Software</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-software"><span class="bcard-badge-dot"></span>Avionics Software</div>
+          <div class="bcard-title">Low-Cost Flight Computer for Sounding Rockets</div>
+          <div class="bcard-desc">Raspberry Pi-based flight computer with barometric altitude, GPS, and 9-DOF IMU. Custom Python firmware for real-time telemetry logging at 50 Hz and apogee detection.</div>
+          <div class="bcard-tags"><span class="bcard-tag">Python</span><span class="bcard-tag">Raspberry Pi</span><span class="bcard-tag">IMU</span><span class="bcard-tag">GPS</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">J</div><div class="bcard-avatar">L</div></div>
+            <span class="bcard-team-label">2 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(4)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc4 bcard-compact" data-cat="gnc" data-year="2024" data-keywords="trajectory optimisation simulation python scipy orbit transfer hohmann delta-v manoeuvre">
+        <div class="bcard-vis-img">
+          <img src="image/card6.png" alt="GNC" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">GNC</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-gnc"><span class="bcard-badge-dot"></span>GNC</div>
+          <div class="bcard-title">Orbital Trajectory Optimisation Tool</div>
+          <div class="bcard-desc">Python tool for Hohmann transfers, bi-elliptic manoeuvres, and plane changes. Outputs Δv budgets and interactive 3D orbit plots.</div>
+          <div class="bcard-tags"><span class="bcard-tag">Python</span><span class="bcard-tag">SciPy</span><span class="bcard-tag">Plotly</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">H</div><div class="bcard-avatar">G</div><div class="bcard-avatar">F</div></div>
+            <span class="bcard-team-label">3 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(5)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 4 — 5+3stat+4 -->
+      <div class="bcard bc5 bcard-dark" data-cat="avionics" data-year="2023" data-keywords="PCB design EPS electrical power system cubesat solar panel battery MPPT">
+        <div class="bcard-vis-img">
+          <img src="image/card7.png" alt="Avionics" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Avionics</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-avionics"><span class="bcard-badge-dot"></span>Avionics</div>
+          <div class="bcard-title">CubeSat EPS PCB Design &amp; Simulation</div>
+          <div class="bcard-desc">Full 4-layer PCB design for a CubeSat EPS: solar MPPT with SPV1040, LiPo charge controller, 3.3V/5V bus outputs, and I²C housekeeping telemetry. Verified in LTSpice before tape-out.</div>
+          <div class="bcard-tags"><span class="bcard-tag">KiCad</span><span class="bcard-tag">LTSpice</span><span class="bcard-tag">MPPT</span><span class="bcard-tag">I²C</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">Q</div><div class="bcard-avatar">W</div><div class="bcard-avatar">X</div></div>
+            <span class="bcard-team-label">4 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-like" data-count="17" onclick="toggleLike(this)"><span class="like-heart">♡</span><span class="like-count">17</span></button>
+            <button class="bcard-view" onclick="openModal(7)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc3 bcard-stat">
+        <div class="bstat-num">38%</div>
+        <div class="bstat-label">Avg. weight reduction across structures projects</div>
+      </div>
+
+      <div class="bcard bc4 bcard-compact" data-cat="research" data-year="2022" data-keywords="green propellant HAN AF-M315E ionic liquid monopropellant thruster performance comparison">
+        <div class="bcard-vis-img">
+          <img src="image/card12.png" alt="Research" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Research</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-research"><span class="bcard-badge-dot"></span>R&amp;D / Research</div>
+          <div class="bcard-title">Performance Study of Green Propellants</div>
+          <div class="bcard-desc">Comparative study of HAN-based and AF-M315E ionic liquid propellants vs. hydrazine using NASA CEA. Evaluated Isp, storage safety, and regulatory aspects for student CubeSat use.</div>
+          <div class="bcard-tags"><span class="bcard-tag">NASA CEA</span><span class="bcard-tag">HAN</span><span class="bcard-tag">Isp Analysis</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">C</div><div class="bcard-avatar">E</div></div>
+            <span class="bcard-team-label">2 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(6)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 5 — 8+4 -->
+      <div class="bcard bc8 bcard-dark" data-cat="software" data-year="2024" data-keywords="mission planning ground station software python dashboard telemetry visualisation real-time">
+        <div class="bcard-vis-img" style="aspect-ratio:21/6">
+          <img src="image/card8.png" alt="Software" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Software</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-software"><span class="bcard-badge-dot"></span>Software</div>
+          <div class="bcard-title">Ground Station Dashboard for CubeSat Telemetry</div>
+          <div class="bcard-desc">Real-time web dashboard to receive, decode, and visualise CubeSat downlink telemetry. FastAPI backend handles serial/UDP radio frames, decodes CCSDS packets, and streams to a React frontend via WebSocket. Live charts for temperature, power, and attitude data.</div>
+          <div class="bcard-tags"><span class="bcard-tag">FastAPI</span><span class="bcard-tag">React</span><span class="bcard-tag">WebSocket</span><span class="bcard-tag">CCSDS</span><span class="bcard-tag">Python</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">E</div><div class="bcard-avatar">R</div></div>
+            <span class="bcard-team-label">2 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-like" data-count="31" onclick="toggleLike(this)"><span class="like-heart">♡</span><span class="like-count">31</span></button>
+            <button class="bcard-view" onclick="openModal(10)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc4 bcard-compact" data-cat="propulsion" data-year="2023" data-keywords="liquid bipropellant injector design LOX ethanol pintle injector test">
+        <div class="bcard-vis-img">
+          <img src="image/card9.png" alt="Propulsion" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Propulsion</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-propulsion"><span class="bcard-badge-dot"></span>Propulsion</div>
+          <div class="bcard-title">Pintle Injector Design for Bipropellant Engine</div>
+          <div class="bcard-desc">Design, CFD analysis, and cold-flow testing of a pintle injector for LOX/ethanol engine. Cold-flow matched simulation within 8%.</div>
+          <div class="bcard-tags"><span class="bcard-tag">ANSYS Fluent</span><span class="bcard-tag">VOF</span><span class="bcard-tag">LOX/Ethanol</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">Z</div><div class="bcard-avatar">Y</div></div>
+            <span class="bcard-team-label">3 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(8)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 6 — 4+4+4 -->
+      <div class="bcard bc4 bcard-compact" data-cat="structures" data-year="2022" data-keywords="topology optimisation bracket additive manufacturing weight reduction generative design">
+        <div class="bcard-vis-img">
+          <img src="image/card10.png" alt="Structures" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">Structures</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-structures"><span class="bcard-badge-dot"></span>Structures</div>
+          <div class="bcard-title">Topology Optimised Satellite Bracket</div>
+          <div class="bcard-desc">ANSYS topology optimisation on a satellite mounting bracket under 3-axis launch loads — 38% mass reduction. Prototype 3D printed and load-tested.</div>
+          <div class="bcard-tags"><span class="bcard-tag">ANSYS</span><span class="bcard-tag">Topology Opt</span><span class="bcard-tag">3D Print</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">U</div><div class="bcard-avatar">I</div><div class="bcard-avatar">O</div></div>
+            <span class="bcard-team-label">3 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(9)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc4 bcard-compact bcard-dark" data-cat="cfd" data-year="2022" data-keywords="supersonic nozzle de laval mach number shock wave CFD convergent divergent nozzle flow">
+        <div class="bcard-vis-img">
+          <img src="image/card11.png" alt="CFD" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0a0a,#1a1a1a)';this.style.display='none'"/>
+          <div class="bcard-vis-overlay"></div>
+          <span class="bcard-vis-label">CFD</span>
+          <span class="bcard-status completed">Completed</span>
+        </div>
+        <div class="bcard-body">
+          <div class="bcard-badge bb-cfd"><span class="bcard-badge-dot"></span>CFD</div>
+          <div class="bcard-title">Supersonic De Laval Nozzle Flow Analysis</div>
+          <div class="bcard-desc">ANSYS Fluent simulation of C-D nozzle at design and off-design conditions. Captured shock patterns, exit Mach variation vs. back pressure — within 3% of 1D isentropic theory.</div>
+          <div class="bcard-tags"><span class="bcard-tag">ANSYS Fluent</span><span class="bcard-tag">Shock Waves</span><span class="bcard-tag">Mach Flow</span></div>
+        </div>
+        <div class="bcard-footer">
+          <div class="bcard-team">
+            <div class="bcard-avatars"><div class="bcard-avatar">F</div><div class="bcard-avatar">G</div><div class="bcard-avatar">H</div></div>
+            <span class="bcard-team-label">3 members</span>
+          </div>
+          <div class="bcard-actions">
+            <button class="bcard-view" onclick="openModal(11)">View <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bcard bc4 bcard-stat">
+        <div class="bstat-num">7</div>
+        <div class="bstat-label">Technical domains covered across all projects</div>
+      </div>
+
+      <!-- NO RESULTS sentinel -->
+      <div class="bento-no-results" id="noResults">
+        <i class="fa-solid fa-rocket"></i>
+        <h3>No projects found</h3>
+        <p>Try adjusting your search or filters.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUBMIT MODAL -->
+  <div class="submit-modal-overlay" id="submitModal">
+    <div class="submit-modal" id="submitModalBox">
+      <div class="submit-modal-header">
+        <div class="submit-modal-header-left">
+          <div class="submit-tag"><i class="fa-solid fa-paper-plane"></i> Student Submission</div>
+          <h2>Share Your <span>Project</span></h2>
+          <p>Fill in the details below and your project will go live on the showcase grid instantly.</p>
+        </div>
+        <button class="submit-modal-close" onclick="closeSubmitModal()">×</button>
+      </div>
+      <div class="submit-steps" id="submitSteps">
+        <div class="submit-step active" id="step-indicator-1"><div class="step-num">1</div> Project Info</div>
+        <div class="step-connector"></div>
+        <div class="submit-step" id="step-indicator-2"><div class="step-num">2</div> Team</div>
+        <div class="step-connector"></div>
+        <div class="submit-step" id="step-indicator-3"><div class="step-num">3</div> Review</div>
+      </div>
+      <div class="submit-modal-body" id="submitModalBody">
+        <div class="step-panel active" id="step-panel-1">
+          <div class="form-section-title"><i class="fa-solid fa-rocket"></i> Project Details</div>
+          <div class="form-row single"><div class="form-group" id="fg-title"><label>Project Title <span class="req">*</span></label><input type="text" class="form-control" id="f-title" placeholder="e.g. AeroSat-1: CubeSat ADCS Design"/><span class="form-error">Please enter a project title.</span></div></div>
+          <div class="form-row">
+            <div class="form-group" id="fg-cat"><label>Domain / Category <span class="req">*</span></label><div style="margin-bottom:4px;"></div>
+              <div class="cat-grid">
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-propulsion" value="propulsion"><label for="cat-propulsion"><i class="fa-solid fa-rocket"></i>Propulsion</label></div>
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-avionics"   value="avionics"><label for="cat-avionics"><i class="fa-solid fa-satellite"></i>Avionics</label></div>
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-structures" value="structures"><label for="cat-structures"><i class="fa-solid fa-cube"></i>Structures</label></div>
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-software"   value="software"><label for="cat-software"><i class="fa-solid fa-microchip"></i>Software</label></div>
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-cfd"        value="cfd"><label for="cat-cfd"><i class="fa-solid fa-wind"></i>CFD</label></div>
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-gnc"        value="gnc"><label for="cat-gnc"><i class="fa-solid fa-location-crosshairs"></i>GNC</label></div>
+                <div><input type="radio" class="cat-option" name="f-cat" id="cat-research"   value="research"><label for="cat-research"><i class="fa-solid fa-flask"></i>Research</label></div>
+              </div>
+              <span class="form-error" id="cat-error" style="display:none;color:#ff4444;font-size:11px;margin-top:4px;">Please select a domain.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div class="form-group" id="fg-year"><label>Year <span class="req">*</span></label><select class="form-control" id="f-year"><option value="">Select year…</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option></select><span class="form-error">Please select a year.</span></div>
+              <div class="form-group" id="fg-status"><label>Project Status <span class="req">*</span></label><div class="status-row"><input type="radio" class="status-option" name="f-status" id="st-completed" value="completed"><label for="st-completed">✓ Completed</label><input type="radio" class="status-option" name="f-status" id="st-ongoing" value="ongoing"><label for="st-ongoing">⏳ Ongoing</label></div><span class="form-error" id="status-error" style="display:none;color:#ff4444;font-size:11px;margin-top:4px;">Please select a status.</span></div>
+            </div>
+          </div>
+          <div class="form-row single"><div class="form-group" id="fg-dept"><label>Department / Sub-domain <span class="req">*</span></label><input type="text" class="form-control" id="f-dept" placeholder="e.g. Avionics & GNC, CFD & Aerodynamics…"/><span class="form-error">Please enter a department.</span></div></div>
+          <div class="form-row single"><div class="form-group" id="fg-desc"><label>Project Description <span class="req">*</span></label><textarea class="form-control" id="f-desc" placeholder="Describe your project — what you built, methods used, key results achieved…" style="min-height:120px;"></textarea><span class="form-error">Please add a description (min. 30 characters).</span></div></div>
+          <div class="form-row single"><div class="form-group" id="fg-tags"><label>Technologies / Tools Used <span class="req">*</span></label><div class="tag-input-wrapper" id="tagWrapper" onclick="document.getElementById('tagInput').focus()"><span id="tagContainer"></span><input type="text" class="tag-text-input" id="tagInput" placeholder="Type a tool and press Enter or comma…" onkeydown="handleTagInput(event)" oninput="handleTagType(event)"/></div><div class="tag-hint">e.g. MATLAB, ANSYS, Python, SolidWorks</div><span class="form-error" id="tag-error" style="display:none;color:#ff4444;font-size:11px;margin-top:4px;">Add at least one technology.</span></div></div>
+        </div>
+        <div class="step-panel" id="step-panel-2">
+          <div class="form-section-title"><i class="fa-solid fa-users"></i> Team Members</div>
+          <p style="font-size:12px;color:#555;margin-bottom:18px;line-height:1.6;">Add each team member's name and their role in the project.</p>
+          <div id="teamMembersContainer">
+            <div class="team-member-row" id="member-row-0">
+              <div class="form-group"><label>Full Name <span class="req">*</span></label><input type="text" class="form-control member-name" placeholder="e.g. Arjun Mehta"/></div>
+              <div class="form-group"><label>Role / Contribution</label><input type="text" class="form-control member-role" placeholder="e.g. ADCS Lead, CFD Analysis…"/></div>
+              <button class="remove-member-btn" onclick="removeMember(0)" style="visibility:hidden;margin-top:22px;">×</button>
+            </div>
+          </div>
+          <button class="add-member-btn" onclick="addMember()"><i class="fa-solid fa-plus"></i> Add Another Member</button>
+          <span class="form-error" id="team-error" style="display:none;color:#ff4444;font-size:11px;margin-top:10px;">Please add at least one team member with a name.</span>
+        </div>
+        <div class="step-panel" id="step-panel-3">
+          <div class="form-section-title"><i class="fa-solid fa-eye"></i> Review &amp; Submit</div>
+          <p style="font-size:12px;color:#555;margin-bottom:18px;line-height:1.6;">Check everything looks right before publishing.</p>
+          <div class="review-block"><div class="review-block-title"><i class="fa-solid fa-rocket"></i> Project</div><div class="review-value" id="rv-title" style="font-family:'Koulen',sans-serif;font-size:1rem;color:#111;margin-bottom:6px;"></div><div class="review-value" id="rv-meta" style="font-size:11px;color:#555;margin-bottom:10px;"></div><div class="review-value" id="rv-desc"></div></div>
+          <div class="review-block"><div class="review-block-title"><i class="fa-solid fa-microchip"></i> Technologies</div><div class="review-tags" id="rv-tags"></div></div>
+          <div class="review-block"><div class="review-block-title"><i class="fa-solid fa-users"></i> Team</div><div class="review-team-list" id="rv-team"></div></div>
+        </div>
+        <div class="submit-success" id="submitSuccess">
+          <div class="success-icon-wrap"><i class="fa-solid fa-check"></i></div>
+          <h3>Project Published! 🚀</h3>
+          <p>Your project has been added to the Bright Aerospace showcase. Scroll down to see it live on the grid!</p>
+          <button class="btn-next" onclick="closeSubmitModal()" style="margin:0 auto;"><i class="fa-solid fa-eye"></i> View on Grid</button>
+        </div>
+      </div>
+      <div class="submit-modal-footer" id="submitModalFooter">
+        <div style="font-size:11px;color:#333;font-family:'Koulen',sans-serif;letter-spacing:.5px;">Step <span id="currentStepLabel">1</span> of 3</div>
+        <div class="step-nav-btns">
+          <button class="btn-prev" id="btnPrev" onclick="prevStep()" style="display:none;">← Back</button>
+          <button class="btn-next" id="btnNext" onclick="nextStep()">Continue <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT DETAIL MODAL -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-box">
+      <div class="modal-visual" id="modalVisual">
+        <img id="modalImg" src="" alt="" style="display:none;"/>
+        <div class="modal-visual-gradient"></div>
+        <i class="modal-visual-icon fa-solid fa-rocket" id="modalIcon"></i>
+        <span class="modal-visual-label" id="modalVisualLabel"></span>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-header">
+        <div class="modal-meta">
+          <span class="modal-dept" id="modalDept"></span>
+          <span class="modal-status-tag" id="modalStatus"></span>
+          <span style="font-size:11px;color:var(--muted);font-family:'Koulen',sans-serif;" id="modalYear"></span>
+        </div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc" id="modalDesc"></p>
+        <div><div class="modal-section-title">Technologies Used</div><div class="modal-tags" id="modalTags"></div></div>
+        <div><div class="modal-section-title">Team</div><div class="modal-team-grid" id="modalTeam"></div></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-gray" onclick="closeModal()">Close</button>
+        <button class="btn-yellow" onclick="shareProject()"><i class="fa-solid fa-share-nodes" style="margin-right:6px;"></i>Share</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo"><img src="logo.png" width="90" height="90" style="border-radius:50%;object-fit:cover;"/></div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <div class="contact-grid">
+          <div class="contact-col"><span>Core Committee</span><span>Sudarsan P</span><span>+91 1234567890</span></div>
+          <div class="contact-col"><br><span>Sudarsan P</span><span>+91 1234567890</span></div>
+          <div class="contact-col"><br><span>Sudarsan P</span><span>+91 1234567890</span></div>
+        </div>
+      </div>
+      <div class="footer-section" style="margin-left:auto;"><h4 style="color:#FFD700;text-transform:none;font-weight:normal;">Tech Support</h4></div>
+    </div>
+    <div class="social-links">
+      <span>Follow Us On</span>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i> Back to Top</button>
+  </footer>
+
+  <script src="projectscript.js"></script>
+</body>
+</html>
